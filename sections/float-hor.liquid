@@ -1,0 +1,50 @@
+<div class="float-container">
+  <div class="float-hor-wrapper">
+    {{ 'amazon_logo.svg' | asset_url | img_tag: 'amazon', 'float-img' }}
+    {{ 'nordstorm-logo.svg' | asset_url | img_tag: 'amazon', 'float-img' }}
+    {{ 'walmart-logo.png' | asset_url | img_tag: 'amazon', 'float-img' }}
+    {{ 'amazon_logo.svg' | asset_url | img_tag: 'amazon', 'float-img' }}
+    {{ 'nordstorm-logo.svg' | asset_url | img_tag: 'amazon', 'float-img' }}
+    {{ 'walmart-logo.png' | asset_url | img_tag: 'amazon', 'float-img' }}
+    {{ 'amazon_logo.svg' | asset_url | img_tag: 'amazon', 'float-img' }}
+    {{ 'nordstorm-logo.svg' | asset_url | img_tag: 'amazon', 'float-img' }}
+    {{ 'walmart-logo.png' | asset_url | img_tag: 'amazon', 'float-img' }}
+  </div>
+</div>
+
+{{% schema  %} 
+ {
+ "name": "float-ver",
+ "presets": [
+ {
+ "name": "float-ver",
+ }
+ ]
+ }
+ {% endschema %}%}
+ {{% style  %}
+ .float-container{
+ overflow: hidden;
+ }
+ .float-hor-wrapper{
+ display: flex;
+ animation-name: ticker;
+ animation-iteration-count: infinite;
+ animation-timing-function: linear;
+ animation-duration: 3s;
+ }
+ .float-img{
+ width: 10rem;
+ flex: none;
+ align-self: self-start;
+ margin-left: 5rem;
+ }
+ @keyframes ticker{
+ 0% {
+ transform: translate3d(0, 0, 0);
+ }
+ 100% {
+ transform: translate3d(-45rem, 0, 0);
+ }
+ }
+ {% endstyle %} %}
