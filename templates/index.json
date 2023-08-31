@@ -231,6 +231,11 @@
       "type": "slide-collection",
       "settings": {
       }
+    },
+    "066c3433-99e2-466b-869e-adb00b2a7ad3": {
+      "type": "cover",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -242,6 +247,7 @@
     "collage",
     "video",
     "multicolumn",
-    "fc483213-4aa6-411a-aa0c-8dde07cde83f"
+    "fc483213-4aa6-411a-aa0c-8dde07cde83f",
+    "066c3433-99e2-466b-869e-adb00b2a7ad3"
   ]
 }
