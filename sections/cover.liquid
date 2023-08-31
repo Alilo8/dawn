@@ -1,3 +1,42 @@
+<section class="cover">
+  {{ 'cover-img.webp' | asset_url | img_tag: 'cover' }}
+  <div class="btn n1">
+    {{ 'plus-icon.webp' | asset_url | img_tag: 'plus' }}
+  </div>
+  <div class="btn n2">
+    {{ 'plus-icon.webp' | asset_url | img_tag: 'plus' }}
+  </div>
+  <div class="btn n3">
+    {{ 'plus-icon.webp' | asset_url | img_tag: 'plus' }}
+  </div>
+</section>
+
+{% style %}
+  .cover {
+    position: relative;
+    margin: 1rem 0;
+  }
+  .cover > img {
+    width: 100vw;
+  }
+  .cover > .btn {
+    position: absolute;
+    cursor: pointer;
+  }
+  .btn.n1 {
+    top: 22vh;
+    left: 15vw;
+  }
+  .btn.n2 {
+    top: 43vh;
+    right: 43vw;
+  }
+  .btn.n3 {
+    top: 39vh;
+    right: 20vw;
+  }
+{% endstyle %}l
+
 {% schema %}
   {
     "name": "cover",
