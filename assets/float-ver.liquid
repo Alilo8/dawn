@@ -1,0 +1,88 @@
+<div class="float-ver-container">
+  <div class="float-ver-wrapper">
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+  </div>
+  <div class="float-ver-wrapper reverse">
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+  </div>
+  <div class="float-ver-wrapper slow">
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+    {{ 'sample.png' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "float-ver",
+    "presets": [
+      {
+        "name": "float-ver"
+      }
+    ]
+  }
+{% endschema %}
+
+{% style %}
+  .float-ver-container {
+    display: flex;
+    gap: 1rem;
+    height: 35rem;
+    width: fit-content;
+    overflow: hidden;
+  }
+  .float-ver-container:hover div {
+    animation-play-state: paused;
+  }
+  .float-ver-wrapper {
+    display: flex;
+    flex-direction: column;
+    animation-name: yticker;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 8s;
+    margin-top: -1rem;
+  }
+  .float-ver-wrapper.reverse {
+    animation-name: yticker-reverse;
+  }
+  .float-ver-wrapper.slow {
+    animation-duration: 10s;
+  }
+  .float-ver-img {
+    height: 25rem;
+    width: 12rem;
+    margin-top: 1rem;
+    border-radius: 15px;
+  }
+  @keyframes yticker {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, -42.5rem, 0);
+    }
+  }
+  @keyframes yticker-reverse {
+    0% {
+      transform: translate3d(0, -42.5rem, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+{% endstyle %}
