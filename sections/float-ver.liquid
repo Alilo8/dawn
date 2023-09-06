@@ -2,10 +2,18 @@
   <div class="main-details-wrapper">
     <div class="main-details">
       {{ 'slipper.avif' | asset_url | img_tag: 'amazon' }}
-      <h1>New Arrival Shark Slide!</h1>
-      <p>
-        Bite into Halloween fun with our spooktacular Shark Slide! Perfect for Halloween parties or chilling at home, this slide is a treat for your feet.
-      </p>
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'heading' %}
+          <h1 class="{{ block.settings.heading_size }}">
+            {{ block.settings.heading }}
+          </h1>
+        {% else %}
+          <p>
+            {{ block.settings.text }}
+          </p>
+        {% endcase %}
+      {% endfor %}
       <div>
         <label><input
             checked
@@ -67,6 +75,63 @@
     "presets": [
       {
         "name": "float-ver"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "New Arrival Shark Slide!",
+        "label": "Title"
+      }, {
+        "type": "inline_richtext",
+        "id": "description",
+        "default": "Bite into Halloween fun with our spooktacular Shark Slide! Perfect for Halloween parties or chilling at home, this slide is a treat for your feet.",
+        "label": "Description"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "heading",
+        "name": "heading",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "heading",
+            "default": "New Arrival Shark Slide!",
+            "label": "Heading"
+          }, {
+            "type": "select",
+            "id": "heading_size",
+            "default": "h1",
+            "options": [
+              {
+                "value": "h2",
+                "label": "small"
+              }, {
+                "value": "h1",
+                "label": "medium"
+              }, {
+                "value": "h0",
+                "label": "big"
+              }
+            ],
+            "label": "Heading Size"
+          }
+        ]
+      }, {
+        "type": "text",
+        "name": "text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "text",
+            "default": "Bite into Halloween fun with our spooktacular Shark Slide! Perfect for Halloween parties or chilling at home, this slide is a treat for your feet.",
+            "label": "Text"
+          }
+        ]
       }
     ]
   }
