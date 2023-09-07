@@ -5,10 +5,10 @@
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'heading' %}
-          <h1 class="{{ block.settings.heading_size }}">
-            {{ block.settings.heading }}
+          <h1 class="{{ block.settings.size }}">
+            {{ block.settings.text }}
           </h1>
-        {% else %}
+          {% when 'text' %}
           <p>
             {{ block.settings.text }}
           </p>
@@ -19,21 +19,26 @@
             checked
             type="radio"
             name="buy"
-            value="Buy 1 Pair"> Buy 1 Pair</label>
+            value="Buy 1 Pair"
+            onclick="handleRadio(this)"> Buy 1 Pair</label>
         <label><input
             type="radio"
             name="buy"
-            value="Buy 2 Pair"> Buy 2 Pair</label>
+            value="Buy 2 Pair"
+            onclick="handleRadio(this)"> Buy 2 Pair</label>
         <label><input
             type="radio"
             name="buy"
-            value="Buy 3 Pair"> Buy 3 Pair</label>
+            value="Buy 3 Pair"
+            onclick="handleRadio(this)"> Buy 3 Pair</label>
         <label><input
             type="radio"
             name="buy"
-            value="Buy 4 Pair"> Buy 4 Pair</label>
+            value="Buy 4 Pair"
+            onclick="handleRadio(this)"> Buy 4 Pair</label>
       </div>
-      <button id="main-btn">Buy 1 Pair</button>
+      {% assign landing_btn_val = value %}
+      <button id="main-btn">Buy 1 pair</button>
     </div>
   </div>
 
@@ -65,9 +70,12 @@
     </div>
   </div>
 </div>
-<script>
-  const active_radio = 'Buy 1 Pair'
-</script>
+<script type="text/javascript">
+  const active_radio = 'Buy 1 Pair';
+  const main_btn = document.getElementById('main-btn')
+      function handleRadio(e) {
+          main_btn.innerHTML = e.value;
+        }</script>
 
 {% schema %}
   {
@@ -75,19 +83,6 @@
     "presets": [
       {
         "name": "float-ver"
-      }
-    ],
-    "settings": [
-      {
-        "type": "text",
-        "id": "title",
-        "default": "New Arrival Shark Slide!",
-        "label": "Title"
-      }, {
-        "type": "inline_richtext",
-        "id": "description",
-        "default": "Bite into Halloween fun with our spooktacular Shark Slide! Perfect for Halloween parties or chilling at home, this slide is a treat for your feet.",
-        "label": "Description"
       }
     ],
     "blocks": [
@@ -98,12 +93,12 @@
         "settings": [
           {
             "type": "inline_richtext",
-            "id": "heading",
+            "id": "text",
             "default": "New Arrival Shark Slide!",
             "label": "Heading"
           }, {
             "type": "select",
-            "id": "heading_size",
+            "id": "size",
             "default": "h1",
             "options": [
               {
@@ -132,15 +127,23 @@
             "label": "Text"
           }
         ]
+      }, {
+        "type": "button",
+        "name": "button",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "link_list",
+            "id": "text",
+            "default": "Buy "
+          }
+        ]
       }
     ]
   }
 {% endschema %}
 
 {% style %}
-  #shopify-section--template--20723079840027__0268fef9-8e3d-4e60-b283-ad11029fcdc6 {
-    display: none;
-  }
   .main {
     display: flex;
     justify-content: space-between;

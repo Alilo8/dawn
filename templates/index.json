@@ -34,7 +34,7 @@
         "text",
         "button"
       ],
-      "disabled": true,
+      "disabled": false,
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -50,6 +50,18 @@
     },
     "0268fef9-8e3d-4e60-b283-ad11029fcdc6": {
       "type": "float-ver",
+      "blocks": {
+        "heading":{
+          "type": "heading"
+        },
+        "text" : {
+          "type": "text"
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
       "settings": {
       }
     },
