@@ -73,9 +73,9 @@
 <script type="text/javascript">
   const active_radio = 'Buy 1 Pair';
   const main_btn = document.getElementById('main-btn')
-        function handleRadio(e) {
-            main_btn.innerHTML = e.value;
-          }</script>
+            function handleRadio(e) {
+                main_btn.innerHTML = e.value;
+              }</script>
 
 {% schema %}
   {
@@ -93,7 +93,7 @@
         "settings": [
           {
             "type": "inline_richtext",
-            "id": "text",
+            "id": "heading",
             "default": "New Arrival Shark Slide!",
             "label": "Heading"
           }, {
@@ -134,8 +134,8 @@
         "settings": [
           {
             "type": "link_list",
-            "id": "text",
-            "default": "Buy "
+            "id": "button",
+            "label": "Button"
           }
         ]
       }

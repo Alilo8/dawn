@@ -1,0 +1,180 @@
+{% capture faq_data %}
+  [
+  {"q" : "Why choose Seed Phytonutrients?", "ans" : "We power our high-performance hair, skin, and body care with seed oils and extracts, because seeds are where a plant's nutrients are encased, protected from environmental elements, and where they remain in their purest form. We imagine a future where clean, trustworthy formulations and sustainable decision-making are the industry standards, so we act as if they are."}
+      {"q" : "Why choose Seed Phytonutrients?", "ans" : "We power our high-performance hair, skin, and body care with seed oils and extracts, because seeds are where a plant's nutrients are encased, protected from environmental elements, and where they remain in their purest form. We imagine a future where clean, trustworthy formulations and sustainable decision-making are the industry standards, so we act as if they are."}
+      {"q" : "Why choose Seed Phytonutrients?", "ans" : "We power our high-performance hair, skin, and body care with seed oils and extracts, because seeds are where a plant's nutrients are encased, protected from environmental elements, and where they remain in their purest form. We imagine a future where clean, trustworthy formulations and sustainable decision-making are the industry standards, so we act as if they are."}  
+    ]{% endcapture %}
+{% assign faq_table = faq_data | jsonToObject %}
+<section class="main-faq">
+  <div>
+    <h3>FAQ</h3>
+    <ul id="faq-cat">
+      {% for block in section.blocks %}
+        <li onclick="handleFaqItemClick(this)">
+          {{ block.settings.title }}
+        </li>
+      {% endfor %}
+
+    </ul>
+  </div>
+  <ul id="faq-q">
+    {% for item in faq_table %}
+      <li>
+        <div onclick="handleFaqQClick(this)">
+          {{ item.q }}
+        </div>
+        <p>
+          {{ item.ans }}
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<script>
+  const faq_cat = document.getElementById('faq-cat');
+  let current_faq_item = faq_cat.childNodes[1];
+  current_faq_item.classList.add('active');
+  function handleFaqItemClick(e) {
+    e.classList.add('active');
+    current_faq_item.classList.remove('active');
+    current_faq_item = e;
+  }
+  function handleFaqQClick(e) {
+    e
+      .nextSibling
+      .nextSibling
+      .classList
+      .toggle('active');
+  }
+</script>
+
+{% style %}
+  .main-faq {
+    display: flex;
+    margin: 5rem 10rem;
+    gap: 4rem;
+  }
+  .main-faq ul {
+    list-style: none;
+    padding: 0;
+  }
+  #faq-cat {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    white-space: nowrap;
+    gap: 2rem;
+  }
+  #faq-cat li:hover {
+    text-decoration: underline;
+  }
+  #faq-cat li.active {
+    color: green;
+    font-weight: bold;
+  }
+  #faq-q {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  #faq-q li p {
+    display: none;
+  }
+  #faq-q li div {
+    cursor: pointer;
+  }
+  #faq-q li p.active {
+    display: inline;
+  }
+{% endstyle %}
+
+
+{% schema %}
+  {
+    "name": "main-faq",
+    "presets": [
+      {
+        "name": "main-faq"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "text",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "default": "General",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "q1",
+            "default": "General",
+            "label": "q1"
+          },
+          {
+            "type": "text",
+            "id": "ans1",
+            "default": "General",
+            "label": "ans1"
+          },
+          {
+            "type": "text",
+            "id": "q2",
+            "default": "General",
+            "label": "q2"
+          }, {
+            "type": "text",
+            "id": "ans2",
+            "default": "General",
+            "label": "ans2"
+          }, {
+            "type": "text",
+            "id": "q3",
+            "default": "General",
+            "label": "q3"
+          }, {
+            "type": "text",
+            "id": "ans3",
+            "default": "General",
+            "label": "ans3"
+          }, {
+            "type": "text",
+            "id": "q4",
+            "default": "General",
+            "label": "q4"
+          }, {
+            "type": "text",
+            "id": "ans4",
+            "default": "General",
+            "label": "ans4"
+          }, {
+            "type": "text",
+            "id": "q5",
+            "default": "General",
+            "label": "q5"
+          }, {
+            "type": "text",
+            "id": "ans5",
+            "default": "General",
+            "label": "ans5"
+          }, {
+            "type": "text",
+            "id": "q6",
+            "default": "General",
+            "label": "q6"
+          }, {
+            "type": "text",
+            "id": "ans6",
+            "default": "General",
+            "label": "ans6"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
