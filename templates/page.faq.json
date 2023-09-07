@@ -8,7 +8,10 @@
         "text": {
           "type": "text"
         }
-      }
+      },
+      "block_order": [
+        "text"
+      ]
     }
   },
   "order": [
