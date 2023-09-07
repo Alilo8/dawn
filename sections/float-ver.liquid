@@ -1,4 +1,4 @@
-<div class="main">
+<div id="shopify-section--{{ section.id }}" class="main">
   <div class="main-details-wrapper">
     <div class="main-details">
       {{ 'slipper.avif' | asset_url | img_tag: 'amazon' }}
@@ -138,6 +138,9 @@
 {% endschema %}
 
 {% style %}
+  #shopify-section--template--20723079840027__0268fef9-8e3d-4e60-b283-ad11029fcdc6 {
+    display: none;
+  }
   .main {
     display: flex;
     justify-content: space-between;
