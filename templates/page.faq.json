@@ -3,15 +3,7 @@
     "main-faq": {
       "type": "main-faq",
       "settings": {
-      },
-      "blocks": {
-        "text": {
-          "type": "text"
-        }
-      },
-      "block_order": [
-        "text"
-      ]
+      }
     }
   },
   "order": [
