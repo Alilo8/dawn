@@ -2,6 +2,124 @@
   "sections": {
     "main-faq": {
       "type": "main-faq",
+      "blocks": {
+        "4df1d958-738c-43f6-9ba3-a6e14174cd95": {
+          "type": "category",
+          "settings": {
+            "title": "General",
+            "q1": "General",
+            "ans1": "General",
+            "q2": "General",
+            "ans2": "General",
+            "q3": "General",
+            "ans3": "General",
+            "q4": "General",
+            "ans4": "General",
+            "q5": "General",
+            "ans5": "General",
+            "q6": "General",
+            "ans6": "General"
+          }
+        },
+        "98a267ac-c51a-4647-9ee0-1bc572e9a388": {
+          "type": "category",
+          "settings": {
+            "title": "General",
+            "q1": "General",
+            "ans1": "General",
+            "q2": "General",
+            "ans2": "General",
+            "q3": "General",
+            "ans3": "General",
+            "q4": "General",
+            "ans4": "General",
+            "q5": "General",
+            "ans5": "General",
+            "q6": "General",
+            "ans6": "General"
+          }
+        },
+        "06141afc-7d54-4388-b14f-a779b820db6a": {
+          "type": "category",
+          "settings": {
+            "title": "General",
+            "q1": "General",
+            "ans1": "General",
+            "q2": "General",
+            "ans2": "General",
+            "q3": "General",
+            "ans3": "General",
+            "q4": "General",
+            "ans4": "General",
+            "q5": "General",
+            "ans5": "General",
+            "q6": "General",
+            "ans6": "General"
+          }
+        },
+        "aba66fa2-5251-44cc-8c66-12e90804120c": {
+          "type": "category",
+          "settings": {
+            "title": "General",
+            "q1": "General",
+            "ans1": "General",
+            "q2": "General",
+            "ans2": "General",
+            "q3": "General",
+            "ans3": "General",
+            "q4": "General",
+            "ans4": "General",
+            "q5": "General",
+            "ans5": "General",
+            "q6": "General",
+            "ans6": "General"
+          }
+        },
+        "04b28061-2ff5-4bb7-a1a4-bd90e589bead": {
+          "type": "category",
+          "settings": {
+            "title": "General",
+            "q1": "General",
+            "ans1": "General",
+            "q2": "General",
+            "ans2": "General",
+            "q3": "General",
+            "ans3": "General",
+            "q4": "General",
+            "ans4": "General",
+            "q5": "General",
+            "ans5": "General",
+            "q6": "General",
+            "ans6": "General"
+          }
+        },
+        "457a1c05-0b13-4912-be99-b967b1273503": {
+          "type": "category",
+          "settings": {
+            "title": "General",
+            "q1": "General",
+            "ans1": "General",
+            "q2": "General",
+            "ans2": "General",
+            "q3": "General",
+            "ans3": "General",
+            "q4": "General",
+            "ans4": "General",
+            "q5": "General",
+            "ans5": "General",
+            "q6": "General",
+            "ans6": "General"
+          }
+        }
+      },
+      "block_order": [
+        "4df1d958-738c-43f6-9ba3-a6e14174cd95",
+        "98a267ac-c51a-4647-9ee0-1bc572e9a388",
+        "06141afc-7d54-4388-b14f-a779b820db6a",
+        "aba66fa2-5251-44cc-8c66-12e90804120c",
+        "04b28061-2ff5-4bb7-a1a4-bd90e589bead",
+        "457a1c05-0b13-4912-be99-b967b1273503"
+      ],
       "settings": {
       }
     }
