@@ -1,4 +1,6 @@
-<section class="main-faq">
+{{ 'main-faq.css' | asset_url | stylesheet_tag }}
+
+<section class="faq-main page-width">
   <div>
     <h3>FAQ</h3>
     <ul id="faq-cat">
@@ -10,10 +12,13 @@
 
     </ul>
   </div>
-  <ul id="faq-block">
+
+  <div id="faq-block">
     {% for block in section.blocks %}
-      <li>
         <ul class="faq-q">
+          <div onclick="handleFaqItemClick(this)">
+            {{ block.settings.title }}
+          </div>
           {% assign setting_array = block.settings | json_parse %}
           {% for i in setting_array offset: 1 %}
             {% if block.settings[i] != ":" %}
@@ -34,125 +39,18 @@
             {% endif %}
           {% endfor %}
         </ul>
-      </li>
     {% endfor %}
-  </ul>
+  </div>
 </section>
 
-<script>
-  const faq_cat = document.getElementById('faq-cat');
-  const faq_block = document.getElementById('faq-block');
-
-
-  let current_faq_cat = faq_cat.childNodes[1];
-  current_faq_cat.classList.add('active');
-  faq_block.childNodes[1].classList.add('active');
-
-  function handleFaqItemClick(e) {
-    e.classList.add('active');
-
-    faq_cat
-      .childNodes
-      .forEach((child, key) => {
-        if (child.innerHTML === e.innerHTML) {
-          faq_block.childNodes[key].classList.add('active');
-        } else if (child.innerHTML === current_faq_cat.innerHTML) {
-          faq_block.childNodes[key].classList.remove('active');
-        }
-      })
-      current_faq_cat
-      .classList
-      .remove('active');
-
-    current_faq_cat = e;
-  }
-  function handleFaqQClick(e) {
-    e
-      .nextSibling
-      .nextSibling
-      .classList
-      .toggle('active');
-    e.childNodes[1].classList.toggle('active');
-  }
-</script>
-
-{% style %}
-  .main-faq {
-    display: flex;
-    justify-content: space-between;
-    margin: 5rem 10rem;
-    gap: 10rem;
-  }
-  .main-faq h3{
-    margin-bottom: 5rem;
-  }
-  .main-faq ul {
-    list-style: none;
-    padding: 0;
-  }
-  #faq-cat {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    white-space: nowrap;
-    gap: 2rem;
-  }
-  #faq-cat li:hover {
-    text-decoration: underline;
-  }
-  #faq-cat li.active {
-    color: green;
-    font-weight: bold;
-  }
-  .faq-q {
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-  }
-  .faq-q .faq-ans {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease-out;
-  }
-  .faq-q .faq-ans p{
-    padding-top: 2rem;
-    border-top: 1px solid #999;
-  }
-  .faq-q .faq-q-item {
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  .faq-q .faq-ans.active {
-    max-height: 300px;
-  }
-  .faq-q svg{
-    transition: rotate 0.3s ease-in;
-  }
-  .faq-q svg.active{
-    rotate: 180deg;
-  }
-  #faq-block{
-    width: 100%;
-    margin-top: 8rem;
-  }
-  #faq-block > li {
-    display: none;
-  }
-  #faq-block li.active {
-    display: list-item;
-  }
-{% endstyle %}
-
+<script src="{{ 'main-faq.js' | asset_url }}"></script>
 
 {% schema %}
   {
-    "name": "main-faq",
+    "name": "faq-main",
     "presets": [
       {
-        "name": "main-faq"
+        "name": "faq-main"
       }
     ],
     "blocks": [
@@ -171,34 +69,34 @@
             "type": "text",
             "id": "q1",
             "default": ":",
-            "label": "q1"
+            "label": "Q1: Answer"
           },
           {
             "type": "text",
             "id": "q2",
             "default": ":",
-            "label": "q2"
+            "label": "Q2: Answer"
           },
           {
             "type": "text",
             "id": "q3",
             "default": ":",
-            "label": "q3"
+            "label": "Q3: Answer"
           }, {
             "type": "text",
             "id": "q4",
             "default": ":",
-            "label": "q4"
+            "label": "Q4: Answer"
           }, {
             "type": "text",
             "id": "q5",
             "default": ":",
-            "label": "q5"
+            "label": "Q5: Answer"
           }, {
             "type": "text",
             "id": "q6",
             "default": ":",
-            "label": "q6"
+            "label": "Q6: Answer"
           }
         ]
       }
