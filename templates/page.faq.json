@@ -7,108 +7,45 @@
           "type": "category",
           "settings": {
             "title": "General",
-            "q1": "General",
-            "ans1": "General",
-            "q2": "General",
-            "ans2": "General",
-            "q3": "General",
-            "ans3": "General",
-            "q4": "General",
-            "ans4": "General",
-            "q5": "General",
-            "ans5": "General",
-            "q6": "General",
-            "ans6": "General"
+            "q1": "Why choose Seed Phytonutrients?: We power our high-performance hair, skin, and body care with seed oils and extracts, because seeds are where a plant's nutrients are encased, protected from environmental elements, and where they remain in their purest form. We imagine a future where clean, trustworthy formulations and sustainable decision-making are the industry standards, so we act as if they are.",
+            "q2": "Where are your products made?: All of our products are made in the USA!",
+            "q3": "Are you still connected to L'Oréal?: You may remember that Seed Phytonutrients was launched as an incubator brand within the L'Oréal group in 2018, but just after our second year, we were purchased by the family of our formulator, who have a long history of crafting formulas in the natural beauty industry, and for Seed Phytonutrients since the brand was only a concept. You could say we've returned to our roots!"
           }
         },
         "98a267ac-c51a-4647-9ee0-1bc572e9a388": {
           "type": "category",
           "settings": {
-            "title": "General",
-            "q1": "General",
-            "ans1": "General",
-            "q2": "General",
-            "ans2": "General",
-            "q3": "General",
-            "ans3": "General",
-            "q4": "General",
-            "ans4": "General",
-            "q5": "General",
-            "ans5": "General",
-            "q6": "General",
-            "ans6": "General"
+            "title": "Ingredients",
+            "q1": "How can I find out what ingredients are in my product?: Ingredients in each product can be found in the \"Ingredients\" tab on that product's page. Also linked there is our Ingredient Glossary, where you can read about the exact source and function of each ingredient we formulate with.",
+            "q2": "Are your fragrances natural?: Yes- all of our fragrances are pure blends of essential oils and plant extracts.",
+            "q3": "Are your products or ingredients tested on animals: Seed Phytonutrients products are proudly 100% cruelty free and certified by Leaping Bunny.",
+            "q4": "Are your products vegan?: All of our products are vegan with the exception of our Dry Patch Balm and Lip Balm, which contain beeswax.",
+            "q5": "Do your products contain parabens, gluten, sulfates, etc?: All of our products are paraben, gluten, and sulfate free.",
+            "q6": "What is the expected shelf life of your products?: Once opened, our products last 6 months."
           }
         },
         "06141afc-7d54-4388-b14f-a779b820db6a": {
           "type": "category",
           "settings": {
-            "title": "General",
-            "q1": "General",
-            "ans1": "General",
-            "q2": "General",
-            "ans2": "General",
-            "q3": "General",
-            "ans3": "General",
-            "q4": "General",
-            "ans4": "General",
-            "q5": "General",
-            "ans5": "General",
-            "q6": "General",
-            "ans6": "General"
+            "title": "Packaging"
           }
         },
         "aba66fa2-5251-44cc-8c66-12e90804120c": {
           "type": "category",
           "settings": {
-            "title": "General",
-            "q1": "General",
-            "ans1": "General",
-            "q2": "General",
-            "ans2": "General",
-            "q3": "General",
-            "ans3": "General",
-            "q4": "General",
-            "ans4": "General",
-            "q5": "General",
-            "ans5": "General",
-            "q6": "General",
-            "ans6": "General"
+            "title": "Orders"
           }
         },
         "04b28061-2ff5-4bb7-a1a4-bd90e589bead": {
           "type": "category",
           "settings": {
-            "title": "General",
-            "q1": "General",
-            "ans1": "General",
-            "q2": "General",
-            "ans2": "General",
-            "q3": "General",
-            "ans3": "General",
-            "q4": "General",
-            "ans4": "General",
-            "q5": "General",
-            "ans5": "General",
-            "q6": "General",
-            "ans6": "General"
+            "title": "Shipping Insurance"
           }
         },
         "457a1c05-0b13-4912-be99-b967b1273503": {
           "type": "category",
           "settings": {
-            "title": "General",
-            "q1": "General",
-            "ans1": "General",
-            "q2": "General",
-            "ans2": "General",
-            "q3": "General",
-            "ans3": "General",
-            "q4": "General",
-            "ans4": "General",
-            "q5": "General",
-            "ans5": "General",
-            "q6": "General",
-            "ans6": "General"
+            "title": "Returns & Refunds"
           }
         }
       },

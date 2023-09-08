@@ -1,10 +1,3 @@
-{% capture faq_data %}
-  [
-  {"q" : "Why choose Seed Phytonutrients?", "ans" : "We power our high-performance hair, skin, and body care with seed oils and extracts, because seeds are where a plant's nutrients are encased, protected from environmental elements, and where they remain in their purest form. We imagine a future where clean, trustworthy formulations and sustainable decision-making are the industry standards, so we act as if they are."}
-        {"q" : "Why choose Seed Phytonutrients?", "ans" : "We power our high-performance hair, skin, and body care with seed oils and extracts, because seeds are where a plant's nutrients are encased, protected from environmental elements, and where they remain in their purest form. We imagine a future where clean, trustworthy formulations and sustainable decision-making are the industry standards, so we act as if they are."}
-        {"q" : "Why choose Seed Phytonutrients?", "ans" : "We power our high-performance hair, skin, and body care with seed oils and extracts, because seeds are where a plant's nutrients are encased, protected from environmental elements, and where they remain in their purest form. We imagine a future where clean, trustworthy formulations and sustainable decision-making are the industry standards, so we act as if they are."}  
-      ]{% endcapture %}
-{% assign faq_table = faq_data | jsonToObject %}
 <section class="main-faq">
   <div>
     <h3>FAQ</h3>
@@ -17,15 +10,30 @@
 
     </ul>
   </div>
-  <ul id="faq-q">
-    {% for item in faq_table %}
+  <ul id="faq-block">
+    {% for block in section.blocks %}
       <li>
-        <div onclick="handleFaqQClick(this)">
-          {{ item.q }}
-        </div>
-        <p>
-          {{ item.ans }}
-        </p>
+        <ul class="faq-q">
+          {% assign setting_array = block.settings | json_parse %}
+          {% for i in setting_array offset: 1 %}
+            {% if block.settings[i] != ":" %}
+              {% assign item = block.settings[i] | split: ': ' %}
+              <li>
+                <div class="faq-q-item" onclick="handleFaqQClick(this)">
+                  {{ item[0] }}
+                  <svg aria-hidden="true" focusable="false" class="icon icon-caret faq-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none">
+                      <path d="M6.01498 7.69991L12.0119 1.69687L10.6112 0.297584L6.01356 4.89991L1.41123 0.302243L0.0119408 1.70295L6.01498 7.69991Z" fill="black"></path>
+                  </svg>
+                </div>
+                <div class="faq-ans">
+                  <p>
+                    {{ item[1] }}
+                  </p>
+                </div>
+              </li>  
+            {% endif %}
+          {% endfor %}
+        </ul>
       </li>
     {% endfor %}
   </ul>
@@ -33,12 +41,30 @@
 
 <script>
   const faq_cat = document.getElementById('faq-cat');
-  let current_faq_item = faq_cat.childNodes[1];
-  current_faq_item.classList.add('active');
+  const faq_block = document.getElementById('faq-block');
+
+
+  let current_faq_cat = faq_cat.childNodes[1];
+  current_faq_cat.classList.add('active');
+  faq_block.childNodes[1].classList.add('active');
+
   function handleFaqItemClick(e) {
     e.classList.add('active');
-    current_faq_item.classList.remove('active');
-    current_faq_item = e;
+
+    faq_cat
+      .childNodes
+      .forEach((child, key) => {
+        if (child.innerHTML === e.innerHTML) {
+          faq_block.childNodes[key].classList.add('active');
+        } else if (child.innerHTML === current_faq_cat.innerHTML) {
+          faq_block.childNodes[key].classList.remove('active');
+        }
+      })
+      current_faq_cat
+      .classList
+      .remove('active');
+
+    current_faq_cat = e;
   }
   function handleFaqQClick(e) {
     e
@@ -46,14 +72,19 @@
       .nextSibling
       .classList
       .toggle('active');
+    e.childNodes[1].classList.toggle('active');
   }
 </script>
 
 {% style %}
   .main-faq {
     display: flex;
+    justify-content: space-between;
     margin: 5rem 10rem;
-    gap: 4rem;
+    gap: 10rem;
+  }
+  .main-faq h3{
+    margin-bottom: 5rem;
   }
   .main-faq ul {
     list-style: none;
@@ -73,19 +104,45 @@
     color: green;
     font-weight: bold;
   }
-  #faq-q {
+  .faq-q {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 5rem;
   }
-  #faq-q li p {
+  .faq-q .faq-ans {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+  }
+  .faq-q .faq-ans p{
+    padding-top: 2rem;
+    border-top: 1px solid #999;
+  }
+  .faq-q .faq-q-item {
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .faq-q .faq-ans.active {
+    max-height: 300px;
+  }
+  .faq-q svg{
+    transition: rotate 0.3s ease-in;
+  }
+  .faq-q svg.active{
+    rotate: 180deg;
+  }
+  #faq-block{
+    width: 100%;
+    margin-top: 8rem;
+  }
+  #faq-block > li {
     display: none;
   }
-  #faq-q li div {
-    cursor: pointer;
-  }
-  #faq-q li p.active {
-    display: inline;
+  #faq-block li.active {
+    display: list-item;
   }
 {% endstyle %}
 
@@ -107,71 +164,41 @@
           {
             "type": "text",
             "id": "title",
-            "default": "General",
+            "default": "Title",
             "label": "Title"
           },
           {
             "type": "text",
             "id": "q1",
-            "default": "General",
+            "default": ":",
             "label": "q1"
           },
           {
             "type": "text",
-            "id": "ans1",
-            "default": "General",
-            "label": "ans1"
+            "id": "q2",
+            "default": ":",
+            "label": "q2"
           },
           {
             "type": "text",
-            "id": "q2",
-            "default": "General",
-            "label": "q2"
-          }, {
-            "type": "text",
-            "id": "ans2",
-            "default": "General",
-            "label": "ans2"
-          }, {
-            "type": "text",
             "id": "q3",
-            "default": "General",
+            "default": ":",
             "label": "q3"
           }, {
             "type": "text",
-            "id": "ans3",
-            "default": "General",
-            "label": "ans3"
-          }, {
-            "type": "text",
             "id": "q4",
-            "default": "General",
+            "default": ":",
             "label": "q4"
           }, {
             "type": "text",
-            "id": "ans4",
-            "default": "General",
-            "label": "ans4"
-          }, {
-            "type": "text",
             "id": "q5",
-            "default": "General",
+            "default": ":",
             "label": "q5"
           }, {
             "type": "text",
-            "id": "ans5",
-            "default": "General",
-            "label": "ans5"
-          }, {
-            "type": "text",
             "id": "q6",
-            "default": "General",
+            "default": ":",
             "label": "q6"
-          }, {
-            "type": "text",
-            "id": "ans6",
-            "default": "General",
-            "label": "ans6"
           }
         ]
       }
