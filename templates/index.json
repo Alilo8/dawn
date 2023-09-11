@@ -34,7 +34,6 @@
         "text",
         "button"
       ],
-      "disabled": false,
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -51,16 +50,30 @@
     "0268fef9-8e3d-4e60-b283-ad11029fcdc6": {
       "type": "float-ver",
       "blocks": {
-        "heading":{
-          "type": "heading"
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "New Arrival Shark Slide!",
+            "size": "h1"
+          }
         },
-        "text" : {
-          "type": "text"
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Bite into Halloween fun with our spooktacular Shark Slide! Perfect for Halloween parties or chilling at home, this slide is a treat for your feet."
+          }
+        },
+        "b17a787c-f623-4e76-b4e2-14c8a2b465e0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/black-slipper.webp"
+          }
         }
       },
       "block_order": [
         "heading",
-        "text"
+        "text",
+        "b17a787c-f623-4e76-b4e2-14c8a2b465e0"
       ],
       "settings": {
       }
