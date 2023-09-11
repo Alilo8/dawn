@@ -1,7 +1,7 @@
 <div id="shopify-section--{{ section.id }}" class="main">
   <div class="main-details-wrapper">
     <div class="main-details">
-      {{ 'slipper.avif' | asset_url | img_tag: 'amazon' }}
+      {{ section.blocks.image | img_tag: 'Hero' }}
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'heading' %}
@@ -73,9 +73,9 @@
 <script type="text/javascript">
   const active_radio = 'Buy 1 Pair';
   const main_btn = document.getElementById('main-btn')
-            function handleRadio(e) {
-                main_btn.innerHTML = e.value;
-              }</script>
+              function handleRadio(e) {
+                  main_btn.innerHTML = e.value;
+                }</script>
 
 {% schema %}
   {
@@ -128,16 +128,17 @@
           }
         ]
       }, {
-        "type": "button",
-        "name": "button",
+        "type": "image",
+        "name": "image",
         "limit": 1,
         "settings": [
           {
-            "type": "link_list",
-            "id": "button",
-            "label": "Button"
+            "type": "image_picker",
+            "id": "image",
+            "label": "Hero Image"
           }
         ]
+
       }
     ]
   }
