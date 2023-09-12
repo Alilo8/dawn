@@ -1,7 +1,7 @@
 <div id="shopify-section--{{ section.id }}" class="main">
   <div class="main-details-wrapper">
     <div class="main-details">
-      {{ section.blocks.image.settings.image | img_tag: 'Hero' }}
+      {{ section.settings.image | img_url: width: 3840 | img_tag: loading: 'lazy', width: section.settings.image.width }}
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'heading' %}
@@ -73,9 +73,9 @@
 <script type="text/javascript">
   const active_radio = 'Buy 1 Pair';
   const main_btn = document.getElementById('main-btn')
-                function handleRadio(e) {
-                    main_btn.innerHTML = e.value;
-                  }</script>
+                                function handleRadio(e) {
+                                    main_btn.innerHTML = e.value;
+                                  }</script>
 
 {% schema %}
   {
@@ -83,6 +83,13 @@
     "presets": [
       {
         "name": "float-ver"
+      }
+    ],
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Hero Image"
       }
     ],
     "blocks": [
