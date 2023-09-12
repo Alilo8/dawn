@@ -44,38 +44,31 @@
 
   <div class="float-ver-container">
     <div class="float-ver-wrapper">
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+      {% assign block_settings = section.blocks.images.settings %}
+      {% assign setting_array = block_settings | json_parse %}
+      {% for i in setting_array %}
+        {{ block_settings[i] | img_tag: 'amazon', 'float-ver-img' }}
+      {% endfor %}
     </div>
     <div class="float-ver-wrapper reverse">
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+      {% for item in (1..6) %}
+        {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+      {% endfor %}
     </div>
     <div class="float-ver-wrapper slow">
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
-      {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+      {% for item in (1..6) %}
+        {{ 'sample.webp' | asset_url | img_tag: 'amazon', 'float-ver-img' }}
+      {% endfor %}
     </div>
   </div>
 </div>
 <script type="text/javascript">
   const active_radio = 'Buy 1 Pair';
   const main_btn = document.getElementById('main-btn')
-                                function handleRadio(e) {
-                                    main_btn.innerHTML = e.value;
-                                  }</script>
+  function handleRadio(e) {
+      main_btn.innerHTML = e.value;
+  }
+</script>
 
 {% schema %}
   {
@@ -134,18 +127,43 @@
             "label": "Text"
           }
         ]
-      }, {
-        "type": "image",
-        "name": "image",
+      },
+      {
+        "type": "images",
+        "name": "images",
         "limit": 1,
         "settings": [
           {
             "type": "image_picker",
-            "id": "image",
-            "label": "Hero Image"
+            "id": "image1",
+            "label": "image1"
+          },
+          {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "image2"
+          },
+          {
+            "type": "image_picker",
+            "id": "image3",
+            "label": "image3"
+          },
+          {
+            "type": "image_picker",
+            "id": "image4",
+            "label": "image4"
+          },
+          {
+            "type": "image_picker",
+            "id": "image5",
+            "label": "image5"
+          },
+          {
+            "type": "image_picker",
+            "id": "image6",
+            "label": "image6"
           }
         ]
-
       }
     ]
   }
