@@ -63,17 +63,22 @@
             "text": "Bite into Halloween fun with our spooktacular Shark Slide! Perfect for Halloween parties or chilling at home, this slide is a treat for your feet."
           }
         },
-        "b17a787c-f623-4e76-b4e2-14c8a2b465e0": {
-          "type": "image",
+        "2a6dcbb4-018f-4766-8b4e-a979f7c39914": {
+          "type": "images",
           "settings": {
-            "image": "shopify:\/\/shop_images\/black-slipper.webp"
+            "image1": "shopify:\/\/shop_images\/sample.webp",
+            "image2": "shopify:\/\/shop_images\/sample.webp",
+            "image3": "shopify:\/\/shop_images\/sample.webp",
+            "image4": "shopify:\/\/shop_images\/sample.webp",
+            "image5": "shopify:\/\/shop_images\/sample.webp",
+            "image6": "shopify:\/\/shop_images\/sample.webp"
           }
         }
       },
       "block_order": [
         "heading",
         "text",
-        "b17a787c-f623-4e76-b4e2-14c8a2b465e0"
+        "2a6dcbb4-018f-4766-8b4e-a979f7c39914"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/black-slipper.webp"
